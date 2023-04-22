@@ -1,7 +1,6 @@
 name: flutter_nude_detector
-description: Flutter nude detector package
+description: Flutter package to detect nudity content in images
 version: 0.1.0+1
-
 
 environment:
   sdk: ">=2.18.0 <3.0.0"
@@ -10,6 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  google_mlkit_image_labeling: ^0.5.0
+  path: any
+  path_provider: ^2.0.14
 
 dev_dependencies:
   flutter_test:
