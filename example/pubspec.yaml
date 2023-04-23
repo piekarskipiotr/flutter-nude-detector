@@ -1,0 +1,27 @@
+name: flutter_nude_detector_example
+description: A flutter_nude_detector_example.
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.3 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  image_picker: ^0.8.7+4
+  flutter_nude_detector:
+    path: /Users/piotr/IdeaProjects/flutter_nude_detector/
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^3.1.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/ml_models/
