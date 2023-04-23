@@ -11,17 +11,19 @@ class FlutterNudeDetector {
   static const _threshold = 0.7;
   static const _modelPath = 'assets/ml_models/nude.tflite';
 
-  /// Image has to be type of InputImage, You can create one with following
-  /// functions: InputImage.fromBytes(), InputImage.fromFile() or
-  /// InputImage.fromFilePath()
-  /// You can also specify custom values of threshold and path to model .tflite
-  /// default threshold is 0.7 and default path to model is assets/ml_models/nude.tflite
+  /// The function check if image contains nudity content and returns bool
+  /// type of result. You can specify custom values of threshold and path
+  /// to model .tflite default threshold is 0.7 and default path to model is
+  /// assets/ml_models/nude.tflite
   static Future<bool> hasNudity({
-    required InputImage image,
+    required File image,
     double threshold = _threshold,
     String modelAssetsPath = _modelPath,
   }) async {
     try {
+      if (!image.existsSync()) throw Exception("Image file doesn't exists!");
+
+      final inputImage = InputImage.fromFile(image);
       final modelPath = await _getModel(modelAssetsPath);
       final options = LocalLabelerOptions(
         modelPath: modelPath,
@@ -29,7 +31,7 @@ class FlutterNudeDetector {
       );
 
       final imageLabeler = ImageLabeler(options: options);
-      final imageLabels = await imageLabeler.processImage(image);
+      final imageLabels = await imageLabeler.processImage(inputImage);
       if (imageLabels.isEmpty) return false;
 
       final label = imageLabels.first;
