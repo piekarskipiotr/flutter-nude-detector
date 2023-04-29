@@ -14,7 +14,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   image_picker: ^0.8.7+4
   flutter_nude_detector:
-    path: /Users/piotr/IdeaProjects/flutter_nude_detector/
+    # When depending on this package from a real application, you should use:
+    #   flutter_nude_detector: ^x.y.z
+    # See https://dart.dev/tools/pub/dependencies#version-constraints
+    # The example app is bundled with the plugin, so we use a path dependency on
+    # the parent directory to use the current plugin's version.
+    path: ../
 
 dev_dependencies:
   flutter_test:
