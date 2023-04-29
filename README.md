@@ -60,4 +60,4 @@ final hasNudity = await FlutterNudeDetector.detect(path: imagePath);
 [mlkit_pub_link]: https://pub.dev/packages/google_mlkit_image_labeling
 [nipunru_github]: https://github.com/nipunru
 [nipunru_repo]: https://github.com/nipunru/nsfw-detector-android
-[model_link]: https://github.com/piekarskipiotr/flutter-nude-detector/raw/master/assets/ml_models/nude.tflite
+[model_link]: https://github.com/piekarskipiotr/flutter-nude-detector/raw/master/example/assets/ml_models/nude.tflite
