@@ -15,20 +15,19 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  File? _image;
+  String? _imagePath;
   bool _containsNudity = false;
 
   Future<dynamic> _onButtonPressed() async {
     final image = await ImagePicker().pickImage(
       source: ImageSource.gallery,
+      imageQuality: 100,
     );
 
     if (image != null) {
-      final imageFile = File(image.path);
-      final hasNudity = await FlutterNudeDetector.hasNudity(image: imageFile);
-
+      final hasNudity = await FlutterNudeDetector.detect(path: image.path);
       setState(() {
-        _image = imageFile;
+        _imagePath = image.path;
         _containsNudity = hasNudity;
       });
     }
@@ -38,12 +37,12 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _image == null
+        child: _imagePath == null
             ? const Text('No image has been selected')
             : Stack(
           alignment: Alignment.center,
           children: [
-            Image.file(File(_image!.path)),
+            Image.file(File(_imagePath!)),
             NudityStatusChip(containsNudity: _containsNudity),
           ],
         ),

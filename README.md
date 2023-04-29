@@ -39,15 +39,14 @@ Now you are ready to use the package 🎉
 ### 🧑🏻‍💻 Usage
 
 ```dart
-final imageFile = File(path);
-final hasNudity = await FlutterNudeDetector.hasNudity(image: imageFile);
+final hasNudity = await FlutterNudeDetector.detect(path: imagePath);
 ```
 
 ### Function properties — hasNudity
 
 | Property name   | Type   | Description                                                             |
 |-----------------|--------|-------------------------------------------------------------------------|
-| image           | File   | required argument                                                       |
+| path            | String | required argument                                                       |
 | threshold       | double | optional argument, default value is set to 0.7                          |
 | modelAssetsPath | String | optional argument, default value is set to assets/ml_models/nude.tflite |
 

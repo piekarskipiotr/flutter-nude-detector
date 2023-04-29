@@ -15,15 +15,13 @@ class FlutterNudeDetector {
   /// type of result. You can specify custom values of threshold and path
   /// to model .tflite default threshold is 0.7 and default path to model is
   /// assets/ml_models/nude.tflite
-  static Future<bool> hasNudity({
-    required File image,
+  static Future<bool> detect({
+    required String path,
     double threshold = _threshold,
     String modelAssetsPath = _modelPath,
   }) async {
     try {
-      if (!image.existsSync()) throw Exception("Image file doesn't exists!");
-
-      final inputImage = InputImage.fromFile(image);
+      final inputImage = InputImage.fromFilePath(path);
       final modelPath = await _getModel(modelAssetsPath);
       final options = LocalLabelerOptions(
         modelPath: modelPath,
@@ -52,7 +50,7 @@ class FlutterNudeDetector {
     }
   }
 
-  // Get path to model .tflite
+  /// Get path to model .tflite
   static Future<String> _getModel(String assetPath) async {
     if (Platform.isAndroid) return assetPath;
 
