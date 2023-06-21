@@ -6,7 +6,7 @@ workflows:
     environment:
       flutter: stable
       vars:
-        PUB_DEV_CREDENTIALS
+        PUB_DEV_CREDENTIALS: ${{ $PUB_DEV_CREDENTIALS }}
 
     scripts:
       - name: Install dependencies
