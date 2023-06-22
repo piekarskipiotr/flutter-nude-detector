@@ -8,6 +8,8 @@ workflows:
         - push
       branch_patterns:
         - pattern: master
+          include: true
+          source: true
       cancel_previous_builds: true
 
     environment:
@@ -18,18 +20,6 @@ workflows:
     scripts:
       - name: Install dependencies
         script: flutter pub get
-      - name: Increment Package Version
-        script: |
-            version=$(flutter pub get --dry-run | grep -o 'version: [0-9]*\.[0-9]*\.[0-9]*\+[0-9]*' | grep -o '[0-9]*\.[0-9]*\.[0-9]*')
-            IFS='.' read -r -a version_parts <<< "$version"
-            major=${version_parts[0]}
-            minor=${version_parts[1]}
-            patch=${version_parts[2]}
-            patch=$((patch + 1))
-            new_version="$major.$minor.$patch+$(date +%Y%m%d%H%M%S)"
-            echo "New version: $new_version"
-            flutter pub version $new_version
-            flutter pub get
       - name: Run tests
         script: flutter test
       - name: Publish to pub.dev
