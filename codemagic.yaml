@@ -34,7 +34,7 @@ workflows:
         script: flutter test
       - name: Publish to pub.dev
         script: |
-          mkdir "~/Library/Application\ Support/dart/"
+          mkdir Library/Application\ Support/dart
           echo $PUB_DEV_CREDENTIALS | base64--decode > "~/Library/Application\ Support/dart/pub-credentials.json"
           flutter pub publish --dry-run
           flutter pub publish -f
