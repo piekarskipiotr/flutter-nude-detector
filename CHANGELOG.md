@@ -1,3 +1,7 @@
+# 0.0.4
+- Update dependencies
+- Fix [Failed to open model](https://github.com/piekarskipiotr/flutter-nude-detector/issues/7)
+
 # 0.0.3
 - Update dependencies
 
