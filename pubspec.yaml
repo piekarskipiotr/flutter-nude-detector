@@ -1,5 +1,5 @@
 name: flutter_nude_detector
-description: flutter_nudity_detection is a comprehensive Flutter package that enables developers to detect nudity content in images with ease. It leverages the power of advanced machine learning algorithms to accurately identify and flag explicit or adult content within images, ensuring a safer and more secure user experience.
+description: Detect explicit content in images easily with flutter_nude_detector, a powerful Flutter package leveraging advanced machine learning for safer user experience.
 version: 0.0.4
 repository: https://github.com/piekarskipiotr/flutter-nude-detector
 
