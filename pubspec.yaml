@@ -1,6 +1,6 @@
 name: flutter_nude_detector
 description: Detect explicit content in images easily with flutter_nude_detector, a powerful Flutter package leveraging advanced machine learning for safer user experience.
-version: 0.0.4
+version: 0.0.4+1
 repository: https://github.com/piekarskipiotr/flutter-nude-detector
 
 environment:
